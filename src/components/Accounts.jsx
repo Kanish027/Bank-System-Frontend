@@ -11,7 +11,7 @@ import {
 
 const Accounts = () => {
   const dispatch = useDispatch();
-  const { accounts } = useSelector((state) => state.accounts);
+  const { accounts, isLoading } = useSelector((state) => state.accounts);
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {

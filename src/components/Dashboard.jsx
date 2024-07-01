@@ -65,88 +65,83 @@ const Dashboard = () => {
               </p>
             </div>
           </div>
-          {user && user.role === "customer" && (
-            <div className="bg-white p-6 rounded-lg shadow-md flex items-center">
-              <FaMoneyBillWave className="text-4xl text-yellow-600 mr-4" />
-              <div>
-                <h3 className="text-lg font-semibold text-gray-700 mb-1">
-                  Total Balance
-                </h3>
-                <p className="text-2xl font-bold text-gray-900">
-                  ₹{transactions && transactions.balance}
-                </p>
-              </div>
-            </div>
-          )}
-        </div>
-
-        {/* Deposit and Withdraw */}
-        {user && user.role === "customer" && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold mb-4 text-gray-800 flex items-center">
-                <FaArrowUp className="text-green-600 mr-2" /> Deposit
+          <div className="bg-white p-6 rounded-lg shadow-md flex items-center">
+            <FaMoneyBillWave className="text-4xl text-yellow-600 mr-4" />
+            <div>
+              <h3 className="text-lg font-semibold text-gray-700 mb-1">
+                Total Balance
               </h3>
-              <form onSubmit={handleDeposit}>
-                <div className="mb-4">
-                  <label
-                    className="block text-gray-700 text-sm font-bold mb-2"
-                    htmlFor="depositAmount"
-                  >
-                    Amount
-                  </label>
-                  <input
-                    type="number"
-                    id="depositAmount"
-                    className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="Enter amount"
-                    onChange={(e) => setDeposit(e.target.value)}
-                    value={deposit}
-                  />
-                </div>
-                <button
-                  disabled={isDepoLoading}
-                  className={`w-full text-white ${
-                    isDepoLoading ? "bg-green-700" : "bg-green-600"
-                  } hover:bg-green-700 font-bold rounded-lg text-sm px-5 py-2.5 transition duration-300 ease-in-out`}
-                >
-                  Deposit
-                </button>
-              </form>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold mb-4 text-gray-800 flex items-center">
-                <FaArrowDown className="text-red-600 mr-2" /> Withdraw
-              </h3>
-              <form onSubmit={handleWithdraw}>
-                <div className="mb-4">
-                  <label
-                    className="block text-gray-700 text-sm font-bold mb-2"
-                    htmlFor="withdrawAmount"
-                  >
-                    Amount
-                  </label>
-                  <input
-                    type="number"
-                    id="withdrawAmount"
-                    className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="Enter amount"
-                    onChange={(e) => setWithdraw(e.target.value)}
-                    value={withdraw}
-                  />
-                </div>
-                <button
-                  disabled={isWithLoading}
-                  className={`w-full text-white ${
-                    isWithLoading ? "bg-red-700" : "bg-red-600"
-                  } hover:bg-red-700 font-bold rounded-lg text-sm px-5 py-2.5 transition duration-300 ease-in-out`}
-                >
-                  Withdraw
-                </button>
-              </form>
+              <p className="text-2xl font-bold text-gray-900">
+                ₹{transactions && transactions.balance}
+              </p>
             </div>
           </div>
-        )}
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="bg-white p-6 rounded-lg shadow-md">
+            <h3 className="text-xl font-semibold mb-4 text-gray-800 flex items-center">
+              <FaArrowUp className="text-green-600 mr-2" /> Deposit
+            </h3>
+            <form onSubmit={handleDeposit}>
+              <div className="mb-4">
+                <label
+                  className="block text-gray-700 text-sm font-bold mb-2"
+                  htmlFor="depositAmount"
+                >
+                  Amount
+                </label>
+                <input
+                  type="number"
+                  id="depositAmount"
+                  className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  placeholder="Enter amount"
+                  onChange={(e) => setDeposit(e.target.value)}
+                  value={deposit}
+                />
+              </div>
+              <button
+                disabled={isDepoLoading}
+                className={`w-full text-white ${
+                  isDepoLoading ? "bg-green-700" : "bg-green-600"
+                } hover:bg-green-700 font-bold rounded-lg text-sm px-5 py-2.5 transition duration-300 ease-in-out`}
+              >
+                Deposit
+              </button>
+            </form>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow-md">
+            <h3 className="text-xl font-semibold mb-4 text-gray-800 flex items-center">
+              <FaArrowDown className="text-red-600 mr-2" /> Withdraw
+            </h3>
+            <form onSubmit={handleWithdraw}>
+              <div className="mb-4">
+                <label
+                  className="block text-gray-700 text-sm font-bold mb-2"
+                  htmlFor="withdrawAmount"
+                >
+                  Amount
+                </label>
+                <input
+                  type="number"
+                  id="withdrawAmount"
+                  className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  placeholder="Enter amount"
+                  onChange={(e) => setWithdraw(e.target.value)}
+                  value={withdraw}
+                />
+              </div>
+              <button
+                disabled={isWithLoading}
+                className={`w-full text-white ${
+                  isWithLoading ? "bg-red-700" : "bg-red-600"
+                } hover:bg-red-700 font-bold rounded-lg text-sm px-5 py-2.5 transition duration-300 ease-in-out`}
+              >
+                Withdraw
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
     </main>
   );
