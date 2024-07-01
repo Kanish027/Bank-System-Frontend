@@ -45,12 +45,14 @@ const Account = () => {
             isActive={tab === "transactions"}
             onClick={() => setTab("transactions")}
           />
-          <SidebarItem
-            icon={FaUsers}
-            label="Accounts"
-            isActive={tab === "accounts"}
-            onClick={() => setTab("accounts")}
-          />
+          {user && user.role === "banker" && (
+            <SidebarItem
+              icon={FaUsers}
+              label="Accounts"
+              isActive={tab === "accounts"}
+              onClick={() => setTab("accounts")}
+            />
+          )}
         </nav>
         <div className="p-4 mt-auto">
           <button
