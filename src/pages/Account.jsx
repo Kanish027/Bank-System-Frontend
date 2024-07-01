@@ -39,21 +39,18 @@ const Account = () => {
             isActive={tab === "dashboard"}
             onClick={() => setTab("dashboard")}
           />
-          {user && user.role === "banker" ? (
-            <SidebarItem
-              icon={FaUsers}
-              label="Accounts"
-              isActive={tab === "accounts"}
-              onClick={() => setTab("accounts")}
-            />
-          ) : (
-            <SidebarItem
-              icon={FaExchangeAlt}
-              label="Transactions"
-              isActive={tab === "transactions"}
-              onClick={() => setTab("transactions")}
-            />
-          )}
+          <SidebarItem
+            icon={FaExchangeAlt}
+            label="Transactions"
+            isActive={tab === "transactions"}
+            onClick={() => setTab("transactions")}
+          />
+          <SidebarItem
+            icon={FaUsers}
+            label="Accounts"
+            isActive={tab === "accounts"}
+            onClick={() => setTab("accounts")}
+          />
         </nav>
         <div className="p-4 mt-auto">
           <button
